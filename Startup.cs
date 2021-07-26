@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using asp_dotnet_webapp_MVC.Data;
 
 namespace asp_dotnet_webapp_MVC
 {
@@ -24,6 +26,7 @@ namespace asp_dotnet_webapp_MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<asp_dotnet_webapp_MVCContext>(options => options.UseSqlServer(Configuration.GetConnectionString("asp_dotnet_webapp_MVCContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

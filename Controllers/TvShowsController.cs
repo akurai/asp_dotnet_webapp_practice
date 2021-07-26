@@ -32,7 +32,7 @@ namespace asp_dotnet_webapp_MVC.Controllers{
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Genre,Rating,ImdbUrl")] TvShow tvShow){
+        public async Task<IActionResult> Create([Bind("Id,Title,Genre,Rating,ImdbUrl,ImageUrl")] TvShow tvShow){
             if(ModelState.IsValid){
                 _context.Add(tvShow);
                 await _context.SaveChangesAsync();
@@ -52,7 +52,7 @@ namespace asp_dotnet_webapp_MVC.Controllers{
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,Rating,ImdbUrl")] TvShow tvShow){
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,Rating,ImdbUrl,ImageUrl")] TvShow tvShow){
             if(id != tvShow.Id){
                 return NotFound();
             }
